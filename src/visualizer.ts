@@ -22,7 +22,7 @@ export function writeMarkdown({
     }
 
     return state + `
-### \`${result.line.slice(result.line.indexOf('+js'))}\`
+### \`${result.line.slice(result.line.indexOf('#'))}\`
 
 Ghostery response: \`${result.responses.ghostery}\`
 uBlock Origin response: \`${result.responses.ubo}\`

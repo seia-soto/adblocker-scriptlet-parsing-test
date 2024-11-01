@@ -7,7 +7,7 @@ export type ParserResponse = string[] | Error
 
 export function parseWithGhostery(line: string): ParserResponse {
   try {
-    const filter = CosmeticFilter.parse(line)
+    const filter = CosmeticFilter.parse(line.trim())
     const { name, args } = filter.parseScript()
 
     return [name, ...args]

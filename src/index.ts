@@ -21,7 +21,10 @@ async function main() {
     for (const line of body.split('\n')) {
       stats.lines++
 
-      if (line.includes('+js') === false) {
+      if (
+        line.startsWith('!') ||
+        line.includes('+js') === false
+      ) {
         stats.skipped++
 
         continue
