@@ -45,7 +45,6 @@ async function main() {
   }
 
   console.log('====> Saving results')
-  console.log(JSON.stringify(stats, null, 2))
   console.log(`${JSON.stringify(stats, null, 2)}
 Failures: ${stats.lines - stats.skipped - stats.matched}
 Coverage: ${stats.matched / (stats.lines - stats.skipped) * 100}%`)
