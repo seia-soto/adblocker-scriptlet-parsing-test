@@ -1,0 +1,7 @@
+.DS_Store
+deno.lock
+pnpm-lock.yaml
+
+/node_modules/
+/filters/
+/result.md
