@@ -1,4 +1,4 @@
-import type { ParserResponse } from "./parsers.ts";
+import type { ParserResponse } from "./parsers.js";
 
 export function stringifyParserResponse(response: ParserResponse) {
   if (response instanceof Error) {

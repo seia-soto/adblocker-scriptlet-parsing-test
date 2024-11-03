@@ -1,8 +1,8 @@
 This project compares scriptlet parsing capability in ghostery and ublock origin.
 
 ```
-% deno install
-% deno src/index.ts
+% # Setup git submodules before proceeding
+% pnpm build && pnpm start
 ```
 
 The above commands will install dependencies and generate a report to `result.md`.

@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
   "scripts": {
-    "start": "deno ./src/index.ts"
+    "start": "node ./dist/",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "HoJeong Go <seia@outlook.kr>",
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@types/chrome": "^0.0.280",
+    "@types/firefox-webext-browser": "^120.0.4",
     "@types/node": "^22.8.6",
     "eslint": "^9.13.0",
     "globals": "^15.11.0",

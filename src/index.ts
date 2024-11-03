@@ -1,8 +1,8 @@
 import * as fs from 'node:fs/promises'
-import { useFilters } from './lists.ts'
-import { parseWithGhostery, parseWithUblockOrigin } from './parsers.ts'
-import { stringifyParserResponse } from './serializer.ts'
-import { Responses, Stats, writeMarkdown } from './visualizer.ts'
+import { useFilters } from './lists.js'
+import { parseWithGhostery, parseWithUblockOrigin } from './parsers.js'
+import { stringifyParserResponse } from './serializer.js'
+import { Responses, Stats, writeMarkdown } from './visualizer.js'
 
 async function main() {
   const filters = await useFilters()
