@@ -1,10 +1,11 @@
 [submodule "externs/ublock"]
 	path = externs/ublock
 	url = https://github.com/gorhill/uBlock.git
-[submodule "externs/ghostery"]
-	path = externs/ghostery
-	url = https://github.com/ghostery/adblocker.git
 [submodule "externs/ghostery-next"]
 	path = externs/ghostery-next
 	url = https://github.com/seia-soto/adblocker.git
 	branch = patch/scriptlet-parsing
+[submodule "externs/ghostery"]
+	path = externs/ghostery
+	url = https://github.com/ghostery/adblocker.git
+	branch = master

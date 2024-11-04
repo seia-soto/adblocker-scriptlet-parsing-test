@@ -7,7 +7,10 @@
   "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
   "scripts": {
     "start": "node ./dist/",
-    "build": "tsc"
+    "build": "tsc",
+    "sync": "git submodule update --init --recursive --remote && pnpm sync:ghostery && pnpm sync:ghostery-next",
+    "sync:ghostery": "cd ./externs/ghostery/ && yarn && yarn build",
+    "sync:ghostery-next": "cd ./externs/ghostery-next/ && yarn && yarn build"
   },
   "keywords": [],
   "author": "HoJeong Go <seia@outlook.kr>",
@@ -21,8 +24,5 @@
     "globals": "^15.11.0",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.12.2"
-  },
-  "dependencies": {
-    "@ghostery/adblocker": "^2.0.3"
   }
 }

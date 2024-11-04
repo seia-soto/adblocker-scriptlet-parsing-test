@@ -1,7 +1,7 @@
 This project compares scriptlet parsing capability in ghostery and ublock origin.
 
 ```
-% # Setup git submodules before proceeding
+% pnpm sync
 % pnpm build && pnpm start
 ```
 

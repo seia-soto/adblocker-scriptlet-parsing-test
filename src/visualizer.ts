@@ -17,15 +17,10 @@ export function writeMarkdown({
   results: Responses[]
 }) {
   return results.reduce((state, result) => {
-    if (result.responses.ghostery === result.responses.ubo) {
-      return ''
-    }
-
     return state + `
 ### \`${result.line.slice(result.line.indexOf('#'))}\`
 
-Ghostery response: \`${result.responses.ghostery}\`
-uBlock Origin response: \`${result.responses.ubo}\`
+${Object.entries(result.responses).map(([name, response]) => `${response === result.responses.ubo ? '✅' : '❌'} ${name}: \`${response}\``).join('\n')}
 `
   }, `# Ghostery adblocker library comparison
 

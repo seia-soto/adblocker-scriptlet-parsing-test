@@ -1,8 +1,40 @@
 import * as fs from 'node:fs/promises'
 import { useFilters } from './lists.js'
-import { parseWithGhostery, parseWithUblockOrigin } from './parsers.js'
+import { parseWithGhostery, parseWithGhosteryNext, parseWithUblockOrigin } from './parsers.js'
 import { stringifyParserResponse } from './serializer.js'
 import { Responses, Stats, writeMarkdown } from './visualizer.js'
+
+function tryParsers(line: string): {
+  success: boolean;
+  responses: Responses;
+} {
+  const ubo = stringifyParserResponse(parseWithUblockOrigin(line))
+  const ghostery = stringifyParserResponse(parseWithGhostery(line))
+  const ghosteryNext = stringifyParserResponse(parseWithGhosteryNext(line))
+
+  const responses: Responses = {
+    line,
+    responses: {
+      ghostery,
+      ghosteryNext,
+      ubo
+    }
+  }
+
+  for (const response of [ghostery, ghosteryNext]) {
+    if (response !== ubo) {
+      return {
+        success: false,
+        responses
+      }
+    }
+  }
+
+  return {
+    success: true,
+    responses
+  }
+}
 
 async function main() {
   const filters = await useFilters()
@@ -30,19 +62,12 @@ async function main() {
         continue
       }
 
-      const ghostery = stringifyParserResponse(parseWithGhostery(line))
-      const ubo = stringifyParserResponse(parseWithUblockOrigin(line))
+      const { success, responses } = tryParsers(line)
 
-      if (ghostery === ubo) {
+      if (success === true) {
         stats.matched++
       } else {
-        failures.push({
-          line,
-          responses: {
-            ghostery,
-            ubo
-          }
-        })
+        failures.push(responses)
       }
     }
   }
